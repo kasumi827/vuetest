@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <p>{{ count }}</p>
+        <button class="up" @click="countUp">プラス{{ count }}</button>
+        <button class="down" @click="countDown">マイナス</button>
+
+        <p>
+            あなたの入力した文字は? => {{ message }}
+        </p>
+        <input v-model="message" placeholder="入力を監視しています">
+
+        <p>{{ checked }}</p>
+        <input type="checkbox" v-model="checked">
+        <p>{{ selectedValues }}</p>
+        <label for="one">1</label>
+        <input type="checkbox" id="one" value="1" v-model="selectedValues">
+        <label for="two">2</label>
+        <input type="checkbox" id="two" value="2" v-model="selectedValues">
+        <label for="three">3</label>
+        <input type="checkbox" id="three" value="3" v-model="selectedValues">
+
+        <div>
+            <ul>
+                <li v-for="job in jobs" :key="job.key">
+                {{ job.name }}
+                </li>
+            </ul>
+        </div>
+        <form @submit.prevent="addJob">
+            <input type="text" v-model="newJobName">
+            <input type="submit" value="タスクを完了する">
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
